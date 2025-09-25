@@ -1,41 +1,65 @@
 # Schemes Module
 
-This module implements various Fully Homomorphic Encryption (FHE) schemes.
+The schemes module contains implementations of specific FHE schemes and protocols.
 
-## Purpose
+## Supported Schemes
 
-The schemes module contains implementations of different FHE schemes, each with their own security assumptions, efficiency characteristics, and use cases.
+### BGV (Brakerski-Gentry-Vaikuntanathan)
+- Ring-LWE based construction
+- Supports modulus switching
+- Optimized for arithmetic circuits
+- Batching support via Chinese Remainder Theorem
 
-## Supported Schemes (To be implemented)
+### BFV (Brakerski/Fan-Vercauteren)
+- Scale-invariant operations
+- Efficient plaintext space utilization
+- Optimized for integer arithmetic
+- SIMD operations support
 
-### Learning With Errors (LWE) Based Schemes
-- **BGV**: Brakerski-Gentry-Vaikuntanathan scheme
-- **BFV**: Brakerski/Fan-Vercauteren scheme
-- **CKKS**: Cheon-Kim-Kim-Song scheme for approximate arithmetic
-- **FHEW**: Fast Homomorphic Encryption over the integers using LWE
-- **TFHE**: Torus-based FHE with very fast bootstrapping
+### CKKS (Cheon-Kim-Kim-Song)
+- Approximate arithmetic over complex numbers
+- Native support for floating-point operations
+- Rescaling for noise management
+- Optimized for machine learning applications
 
-### Ring Learning With Errors (RLWE) Based Schemes
-- **Ring-LWE variants**: Polynomial ring versions of LWE schemes
+### GSW (Gentry-Sahai-Waters)
+- Matrix-based construction
+- Supports arbitrary branching programs
+- Asymmetric noise growth
+- Useful for boolean circuits
 
-## Key Components (To be implemented)
+## Planned Features
 
-- `bgv.h/.cpp` - BGV scheme implementation
-- `bfv.h/.cpp` - BFV scheme implementation
-- `ckks.h/.cpp` - CKKS scheme for floating-point operations
-- `fhew.h/.cpp` - FHEW implementation
-- `tfhe.h/.cpp` - TFHE implementation
-- `base_scheme.h` - Abstract base class for all FHE schemes
+### TFHE (Torus-based FHE)
+- Fast bootstrapping
+- Gate-by-gate evaluation
+- Low-latency operations
+- Boolean circuit optimization
 
-## Features
+### FHEW
+- Bootstrapping in ~0.1 seconds
+- Boolean gate evaluation
+- Compact ciphertexts
+- Minimal memory footprint
 
-Each scheme implementation will provide:
-- Key generation (public key, secret key, evaluation key)
-- Encryption and decryption
-- Homomorphic operations (addition, multiplication)
-- Bootstrapping (where applicable)
-- Parameter selection utilities
+## Architecture
 
-## Security Considerations
+Each scheme implementation includes:
+- Parameter generation and validation
+- Key generation (secret, public, evaluation keys)
+- Encryption and decryption operations
+- Homomorphic operation implementations
+- Bootstrapping procedures (where applicable)
+- Serialization and I/O operations
 
-All implementations follow current security best practices and parameter recommendations from the FHE community.
+## Usage Guidelines
+
+1. Choose scheme based on application requirements:
+   - **BGV/BFV**: Integer arithmetic, exact computation
+   - **CKKS**: Floating-point, approximate computation
+   - **GSW**: Boolean circuits, branching programs
+   - **TFHE**: Low-latency boolean operations
+
+2. Select security parameters appropriate for threat model
+3. Configure batching and packing for SIMD parallelism
+4. Plan bootstrapping strategy for deep computations
