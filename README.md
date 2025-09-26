@@ -151,7 +151,7 @@ This library is designed to be educational and extensible. Contributions are wel
 
 ## License
 
-[Specify your license here]
+MIT
 
 ## References
 
