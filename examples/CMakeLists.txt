@@ -1,0 +1,8 @@
+add_executable(lwe_example lwe_example.cpp)
+target_link_libraries(lwe_example turinged)
+
+add_executable(rlwe_example rlwe_example.cpp)
+target_link_libraries(rlwe_example turinged)
+
+add_executable(homomorphic_ops_example homomorphic_ops_example.cpp)
+target_link_libraries(homomorphic_ops_example turinged)

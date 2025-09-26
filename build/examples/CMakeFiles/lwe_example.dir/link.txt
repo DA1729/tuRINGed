@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -O2 CMakeFiles/lwe_example.dir/lwe_example.cpp.o -o lwe_example  ../libturinged.a 

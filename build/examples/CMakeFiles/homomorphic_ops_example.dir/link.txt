@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -O2 CMakeFiles/homomorphic_ops_example.dir/homomorphic_ops_example.cpp.o -o homomorphic_ops_example  ../libturinged.a 
